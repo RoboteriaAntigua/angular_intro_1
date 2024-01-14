@@ -1,0 +1,18 @@
+<h3>Bucles</h3>
+
+<ul>
+  <!-- *ngFor = "let cada_elemento of arreglo"-->
+  <!--en este caso es un arreglo de objetos-->
+  <li *ngFor="let iteracion of arreglo_de_personas">
+    <p>{{iteracion.nombre}}</p>
+  </li>
+</ul>
+
+<h3>Para saber en que iteracion estoy [index]</h3>
+<ul>
+  <!-- *ngFor = "let cada_elemento of arreglo"-->
+  <!--en este caso es un arreglo de objetos-->
+  <li *ngFor="let iteracion of arreglo_de_personas; let i =index">
+    <p>estoy en la iteracion: {{i}} nombre: {{iteracion.nombre}}</p>
+  </li>
+</ul>

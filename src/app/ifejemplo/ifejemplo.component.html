@@ -1,0 +1,15 @@
+<p>ifejemplo works!</p>
+
+<p *ngIf="variable">  Si variable: {{variable}} es verdadera este mensaje se muestra</p>
+
+<p *ngIf=var2> Si variable: {{var2}} es false este mensaje NO se muestra</p>
+
+
+<h1>Mostrar un componente con ngIf</h1>
+
+<p> Si el valor de la variable es true se muestra el componente contador</p>
+<app-contador *ngIf="variable"></app-contador>
+
+<!--Esta vez no se va a mostrar porque variable2=false-->
+<p>Esta vez variable2 es: {{var2}} y no muestra nuevamente el componente</p>
+<app-contador *ngIf="var2"></app-contador>

@@ -6,8 +6,142 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
-  <app-root></app-root>
+  <h1>Titulo afuera del componente</h1>
+  <app-root>
+  </app-root>
+
+
+<!--********************* Contenido*****************************--><!--
+
+  0_Uso de codigo javascript:
+                 recordar que estamos adentro de una clase,
+    entonces:
+     Las funciones las definimos como metodos.
+     Lo que queremos que se ejecute lo ponemos en el constructor
+     accedemos a metodos y atributos con this.atributo
+     (ver app.component.ts)
+
+
+
+  1_creacion de componentes, manual y automatica:
+    manual:
+        Creamos una carpeta (convencion nombre de carpeta=nombre de componente, en este caso 'contador').
+        Creamos 3 archivos:
+                        nombre.component.html
+                        nombre.component.css
+                        nombre.component.ts
+        Agregamos en el app.module.ts en el arreglo 'decalaration'
+                    declarations: [
+                        AppComponent,
+                        nombreComponent
+                                           ],
+    automatica:
+        ng generate component nombre
+        o
+        ng g c nombre
+
+  2_uso de componentes:
+      Notece que en el index (aqui) usamos un componente llamado <app-root>, corresponde al componente raiz
+        que biene por defecto.
+      Adentro del componente raiz <app-root> llamamos al componente que creamos <app-contador>
+
+  3_Interpolacion de variables:
+                          En realidad se usa interpolacion de variables:
+                          En el .ts se define variable (es atributo de una clase)
+                          Y en el .html se accede a ella asi {{var1}}
+
+          Notese que en app.component.html llamamos a la variable title declarada en el app.component.ts
+              La declaramos asi:
+                export class AppComponent {
+                      title = 'Componente root';
+                    }
+              y la usamos asi:
+                    {{title}}
+
+              {{var_algo}} le dice a angular que el valor de var_algo lo queremos como texto plano
+              y sin las llaves: var_algo le dice a angular que es una variable
+
+          De igual forma en el contador.component.ts
+                    export class contadorComponent{
+                        /*Defino una variable para ser usada en el .html*/
+                         var1= "AlphaChanel1234";
+                        }
+          Y en el contador.component.html
+                        <p> Interpolacion: Accedo a la variable del .ts, que es var1= {{var1}}</p>
+
+4_Usando una interface:
+                        Note que en contador.component.ts definimos un objeto ts con sus tipos,
+                        si quisieramos podriamos usar una interface, para ello:
+                        creamos un archivo llamado: objeto2_interface.ts y en el definimos la interface
+                        en modo export y la importamos en el .ts, listo ya la podemos usar en el .html
+
+5_Eventos de angular:
+                        Asi como javascript tiene el evento 'onclick' dentro de ui como <button>, angular provee,
+                        varios eventos para ser usados, sin alejarse de los componentes, en el componente
+                        'contador' veremos como se usan.
+
+
+6_Asignacion dinamica de clases
+                        Vemos en el componente botones varias formas de asignar clases bootstrap 
+                        dinamicamente a una botonera
+
+
+7_Propiedades
+                          Asi como cambiamos clases con botones, podemos activar o desactivar propiedades con 
+                          botones
+                          de igual forma asignar variables a valores de propiedades.
+                          Propiedades como imagenes, disabled, etc.
+
+8_variables de plantilla (template)
+                          id="id1" o directamente #id1 esta es una llamada variable de plantilla.
+                          Con solo decir id1 creamos un elemento
+                          <ng-template #id1></ng-template>
+                         ejemplo en #ngIf
+
+9_Directiva *ngif          Es un if.
+                          En caso de 'ocultar' un elemento, esta directiva lo borra del dom no lo oculta-
+                          *ngIf = true o false    crea el componente o lo elimina del DOM
+                          *ngIf=boolean; else id1           //crea variable de plantilla id1
+                          <ng-template #id1></ng-template>
+
+10_ *ngFor                Es como un foreach
+                          <li *ngFor="let iteracion of arreglo_de_personas">
+                             <p> nombre: {{iteracion.nombre}}</p>
+                            </li>
+
+                          Para saber en que iteracio estoy:
+                           <li *ngFor="let iteracion of arreglo_de_personas; let i =index">
+                            <p>estoy en la iteracion: {{i}} nombre: {{iteracion.nombre}}</p>
+                          </li>
+
+11_ pipes
+                          Sirve para interpolar retornando ciertos formato por ej: json
+                          {{variable | json}}
+
+12_Forms en paginas SPA!
+    1-Basados en plantillas:
+                          En app.module.ts importamos FormsModule y lo incluimos en el array import
+                          En el .ts defino un objeto con algunas propiedades
+                          //defino un objeto js
+                              registro = {
+                                email:"",
+                                clave:""
+                              };
+                          El evento (ngSubmit) en form (en lugar del action) dispara una funcion en el .ts
+                          <form (ngSubmit)="procesar()">
+                            <input [(ngModel)]="registro.email" name="email" >
+                            <input [(ngModel)]="registro.clave" name="clave" >
+                            <button type="submit">confirmar</button>
+                          </form>
+                          En el .ts podemos procesar los datos adentro de la funcion procesar();
+-->
+
+
+
+
 </body>
 </html>

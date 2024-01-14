@@ -1,0 +1,53 @@
+<h3>Asignacion de clases dinamica</h3>
+<button class="btn btn-danger mx-2  " (click)=" text_color ='text-danger' ">Rojo</button>
+<button class="btn btn-success mx-2 " (click)=" text_color='text-success'  ">Verde</button>
+<button class="btn btn-primary mx-2 " (click)=" text_color='text-primary'  ">Azul</button>
+
+
+<!--Asignacion de clases de manera dinamica-->
+<p [class]="text_color">Texto que va a cambiar de color</p>
+
+<p>{{text_color}}</p>
+
+<br><br>
+<h3>Otra forma, con ejemplo activar botonera o desactivar</h3>
+<!--(click)="button_disabled= !button_disabled con este decimos que cambie el true por false y el false por true-->
+<button class="btn btn-secondary" (click)="button_disabled= !button_disabled" >activar/desactivar</button>
+
+<!--Clase disabled de bootstrap, pero asignada dinamicamente-->
+<button [class.disabled]="button_disabled" class="btn btn-danger mx-2  " (click)=" text_color ='text-danger' ">Rojo</button>
+<button [class.disabled]="button_disabled" class="btn btn-success mx-2 " (click)=" text_color='text-success'  ">Verde</button>
+<button [class.disabled]="button_disabled" class="btn btn-primary mx-2 " (click)=" text_color='text-primary'  ">Azul</button>
+
+
+<!--O casi igual que el anterior, pero el [class] como arreglo que admite varias clases
+    Nota: tambien admite [ngClass]--><br><br>
+<button class="btn btn-secondary" (click)="button_disabled2= !button_disabled2" >activar/desactivar</button>
+
+<button [class]="{'disabled':button_disabled2, 'btn':true, 'btn-danger':true, 'mx-2':true}"  (click)=" text_color ='text-danger' ">Rojo</button>
+<button [class]="{'disabled':button_disabled2, 'btn':true, 'btn-success':true, 'mx-2':true}"  (click)=" text_color='text-success'  ">Verde</button>
+<button [class]="{'disabled':button_disabled2, 'btn':true, 'btn-primary':true, 'mx-2':true}"  (click)=" text_color='text-primary'  ">Azul</button>
+<br><br><br>
+
+<!--Sobre propiedades no clases-->
+<h3>Sobre propiedades</h3>
+<button disabled class="btn btn-danger mx-2  " >Rojo</button>
+<button disabled class="btn btn-success mx-2 " >Verde</button>
+<button disabled class="btn btn-primary mx-2 " >Azul</button>
+<br><br>
+
+<!--Propiedades true o false-->
+<button [disabled]="variable_cambio" class="btn btn-danger mx-2  " >Rojo</button>
+<button [disabled]="variable_cambio" class="btn btn-success mx-2 " >Verde</button>
+<button [disabled]="variable_cambio" class="btn btn-primary mx-2 " >Azul</button>
+
+<!--Asignacion de propiedades de manera dinamica-->
+<button class="btn btn-secondary" (click)="variable_cambio =! variable_cambio" >activar/desactivar</button><br><br><br>
+
+<!--Mas sobre propiedades activar desactivar imagenes!-->
+<h3 class="p-3">Cambiar de imagen con un click</h3>
+<button (click)="src_var=img1" class="btn btn-dark">imagen 1</button>
+<button (click)="src_var=img2" class="btn btn-dark">imagen 2</button>
+<button (click)="src_var=img3" class="btn btn-dark">imagen 3</button><br>
+<img [src]="src_var" style="width: 25%;">
+

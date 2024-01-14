@@ -1,0 +1,26 @@
+<!--Un formulario de registro-->
+<div class="container py-4">
+
+      <div class="row">
+          <div class="col-6">
+            <!--  poner  #id1 es igual a poner id="id1"-->
+          <input type="name" class="form-control" placeholder="ingrese nombre x" #id1></div>
+
+          <div class="col-3">
+          <button type="submit" class="btn btn-success" (click)="mostrar(id1.value)">mostrar</button></div>
+      </div>
+
+<!-- *ngIF
+      *ngIf = true o false    crea el componente o lo elimina del DOM
+    *ngIf=boolean; else variable_de_plantilla(template)-->
+  <!--Un alerta bootstrap-->
+  <div class="alert alert-primary mt-4" *ngIf="abrir_alerta; else mensaje">
+    <p>Se ha introducido correctamente el nombre: {{nombre}}</p>
+  </div>
+</div>
+
+<ng-template #mensaje>
+  <div class="alert alert-danger">
+    Debe ingresar
+  </div>
+</ng-template>

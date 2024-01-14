@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;">
+  <!--Un logo-->
+  <img class="card-img-top"  src="https://media.istockphoto.com/id/1399559286/es/foto/holograma-del-horizonte-de-la-ciudad-de-alta-tecnolog%C3%ADa-renderizado-3d.jpg?s=612x612&w=is&k=20&c=Y3NXGlmDky7SNZ2zbYvDh08B3az1HcqlgM6tDIftMo8=" alt="Card image cap">
+  <div class="card-body">
+
+      <form (ngSubmit)="procesar()">
+        <div class="col-auto m-1 p-1" >
+        <input [(ngModel)]="registro.email" name="email" type="email" class="form-control" placeholder="example@mail.com"></div>
+
+        <div class="col-auto m-1 p-1">
+        <input [(ngModel)]="registro.clave" type="password" name="clave" class="form-control" placeholder="una clave segura"></div>
+
+        <div class="col-auto p-1 m-1">
+        <button type="submit" class="btn btn-success">confirmar identidad</button></div>
+
+      </form>
+      <p class="card-text p-2 ">Este es el texto </p>
+</div>
+</div>
+
+<h3>El form recuperado en spa</h3>
+{{registro | json}}
